@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, requests, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -26,9 +26,9 @@ def index():
 
 @app.route('/create', methods=['GET', 'POST'])
 def create():
-    if request.method == 'POST':
-        title = request.form['title']
-        description = request.form['description']
+    if requests.method == 'POST':
+        title = requests.form['title']
+        description = requests.form['description']
         new_task = Task(title=title, description=description)
         db.session.add(new_task)
         db.session.commit()
