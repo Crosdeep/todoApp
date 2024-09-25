@@ -1,21 +1,22 @@
-from flask import Flask, render_template, requests, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-# PostgreSQL veritabanı bağlantı bilgileri
+#postgreSQL veritabanı bağlantısı
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://kullanıcı_adı:şifre@localhost/veritabanı_adı'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-# Görev modelini tanımla
+#görev modeli
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
+    todo_task = db.Column(db.String(200), nullable=False)
     description = db.Column(db.String(200), nullable=False)
 
-# Veritabanını oluşturmak için:
+# Veritabanını oluşturmak için
 # with app.app_context():
 # db.create_all()
 
@@ -26,9 +27,9 @@ def index():
 
 @app.route('/create', methods=['GET', 'POST'])
 def create():
-    if requests.method == 'POST':
-        title = requests.form['title']
-        description = requests.form['description']
+    if request.method == 'POST':
+        title = request.form['title']
+        description = request.form['description']
         new_task = Task(title=title, description=description)
         db.session.add(new_task)
         db.session.commit()
@@ -47,5 +48,5 @@ def delete_task(id):
     db.session.commit()
     return redirect(url_for('index'))
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)

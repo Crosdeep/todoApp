@@ -4,12 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.js">
     <title>{% block title %} Anasayfa {% endblock %}</title>
 </head>
 <body>
     <nav class="create-nav">
         <a href="#" class="create-btn">Create</a>
     </nav>
+    <!-- Görev Kartları -->
+    <div class="task-container" id="taskContainer">
+        {% for task in tasks %}
+        <div class="task-card" data-task-id="{{ task.id }}">
+            <h3>{{ task.title }}</h3>
+            <p>{{ task.description }}</p>
+            <button class="delete-btn" onclick="deleteTask({{ task.id }})">×</button>
+        </div>
+        {% endfor %}
+    </div>
     <hr>
 </body>
 </html>
