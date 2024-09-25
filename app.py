@@ -30,7 +30,8 @@ def create():
     if request.method == 'POST':
         title = request.form['title']
         description = request.form['description']
-        new_task = Task(title=title, description=description)
+        date = request.form['date']
+        new_task = Task(title=title, description=description, date=date)
         db.session.add(new_task)
         db.session.commit()
         return redirect(url_for('index'))

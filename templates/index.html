@@ -17,6 +17,7 @@
         <div class="task-card" data-task-id="{{ task.id }}">
             <h3>{{ task.title }}</h3>
             <p>{{ task.description }}</p>
+            <p>{{ task.date }}</p>
             <button class="delete-btn" onclick="deleteTask({{ task.id }})">×</button>
         </div>
         {% endfor %}
