@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Görev Oluştur</title>
+</head>
+<body>
+    <h1>Yeni Görev Ekle</h1>
+    <form method="POST">
+        <label for="title">Başlık:</label>
+        <input type="text" name="title" required><br>
+
+        <label for="task">Görev:</label>
+        <textarea name="task" required></textarea><br>
+
+        <label for="description">Açıklama:</label>
+        <textarea name="description"></textarea><br>
+
+        <button type="submit">Ekle</button>
+    </form>
+    <a href="{{ url_for('todo.index') }}">Geri Dön</a>
+</body>
+</html>
