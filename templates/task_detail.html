@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ task.title }}</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+<div class="detail-box">
     <h1>{{ task.title }}</h1>
     <p>{{ task.task }}</p>
     <p>{{ task.description }}</p>
-    <p>Oluşturma Tarihi: {{ task.date_created }}</p>
-    <a href="{{ url_for('todo.index') }}">Geri Dön</a>
+    <p><strong>Oluşturma Tarihi:</strong>{{ task.date_created }}</p>
+    <a href="{{ url_for('todo.index') }}" style="color: black; border:1px solid black; border-radius: 5px; padding: 8px; text-decoration: none;">Geri Dön</a>
+</div>
 </body>
 </html>

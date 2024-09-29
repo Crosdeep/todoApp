@@ -3,21 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Görev Oluştur</title>
+        <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Yeni Görev Ekle</h1>
-    <form method="POST">
-        <label for="title">Başlık:</label>
-        <input type="text" name="title" required><br>
 
-        <label for="task">Görev:</label>
-        <textarea name="task" required></textarea><br>
+<div class="new-task-container">
+    <div class="add-todo">
+         <h1>Yeni Görev Ekle</h1> <hr>
+        <form action="{{ url_for('todo.todo_index') }}" method="POST" class="form-view">
+            <div class="input-title">
+                <label for="title">Başlık:</label>
+                <input type="text" name="title" required><br>
+            </div>
 
-        <label for="description">Açıklama:</label>
-        <textarea name="description"></textarea><br>
+            <div class="input-task">
+                <label for="task">Görev:</label>
+                <input type="text" name="task" required>
+            </div>
 
-        <button type="submit">Ekle</button>
-    </form>
-    <a href="{{ url_for('todo.index') }}">Geri Dön</a>
+            <div class="input-description">
+                <label for="description">Açıklama:</label>
+                <input type="text" name="description" >
+                <br>
+            </div>
+
+            <div class="input-btn">
+                <button type="submit">Ekle</button>
+            </div>
+        </form>
+        <a href="{{ url_for('todo.index') }}">Geri Dön</a>
+    </div>
+
+</div>
 </body>
 </html>

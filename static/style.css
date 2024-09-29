@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*Navbar*/
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    background-color: black;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.nav-title{
+    font-size: 1.5em;
+    padding: 15px;
+}
+.nav-search input{
+    width: 180px;
+    height: 25px;
+    padding: 5px;
+}
+.nav-search .submit-btn{
+    width: 60px;
+    height: 25px;
+}
+.nav-search{
+    padding: 20px;
+}
+.add-task-btn{
+    width: 55px;
+    height: 25px;
+}
+.add-task-btn a{
+    text-decoration: none;
+    color: black;
+}
+
+/*Form*/
+#one{
+    padding-top: 70px;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.form-view{
+    padding: 20px;
+}
+.add-todo{
+    width: 70%;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}
+#underscore{
+    margin: 15px;
+}
+.input-title{
+    margin: 10px;
+    resize: none;
+    width: 100% auto;
+}
+.input-title input{
+    width: 100%;
+    height: 25px;
+    resize: none;
+    padding: 10px;
+}
+.input-task input{
+    width: 90%;
+    height: 25px;
+    padding: 10px;
+}
+.input-task{
+    width: 100% auto;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+.input-description {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    width: 100% auto;
+}
+.input-description input{
+    padding: 10px;
+    width: 100%;
+    height: 25px
+}
+
+.input-btn button{
+    width: 50px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+.new-task-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.task-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    aling-items: center;
+    flex-wrap: wrap;
+    margin-top: 20vh;
+}
+.task-box{
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 300px;
+}
+.task-box p{
+   font-size: 1.2em;
+   padding-top: 12px;
+   padding-bottom: 10px;
+}
+/* detail box*/
+.detail-box{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 9px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.3em;
+    gap: 20px;
+}
+.detail-box p{
+    margin: 5px;
+    padding: 5px;
+}
+

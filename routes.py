@@ -26,6 +26,30 @@ def create_task():
         db.session.add(new_task)
         db.session.commit()
         return redirect(url_for('todo.index'))
+    return render_template('create_task.html')
+
+
+#Görev silme
+@todo_db.route("/delete/<int:id>", methods=['POST','DELETE'])
+def delete_task(id):
+    if request.method == 'POST':
+        if request.form.get('_method') == 'DELETE':
+            task = Todo.query.get_or_404(id)
+            db.session.delete(task)
+            db.session.commit()
+            return redirect(url_for('todo.index'))
+
+
+@todo_db.route('/todos', methods=['GET', 'POST'])
+def todo_index():
+    search_query = request.args.get('search')
+    if search_query:
+        todos = Todo.query.filter(Todo.title.contains(search_query) | Todo.task.contains(search_query)).all()
+    else:
+        todos = Todo.query.all()
+
+    return render_template('index.html', todos=todos)
+
 
 #Görev detay sayfası
 @todo_db.route('/task/<int:id>')
