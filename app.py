@@ -1,5 +1,3 @@
-#app
-from logging import DEBUG
 
 from flask import Flask
 from config import Config

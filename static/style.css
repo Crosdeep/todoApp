@@ -3,6 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: Arial, sans-serif; /* Yazı tipi */
+}
 /*Navbar*/
 nav{
     display: flex;
@@ -11,8 +18,7 @@ nav{
     height: 90px;
     background-color: black;
     color: white;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+
 }
 .nav-title{
     font-size: 1.5em;
@@ -38,7 +44,10 @@ nav{
     text-decoration: none;
     color: black;
 }
+.generate-container{
+    height: 100vh;
 
+}
 /*Form*/
 #one{
     padding-top: 70px;
@@ -63,18 +72,22 @@ nav{
 .input-title{
     margin: 10px;
     resize: none;
-    width: 100% auto;
+    width: 100%;
 }
 .input-title input{
     width: 100%;
-    height: 25px;
+    height: 35px;
     resize: none;
     padding: 10px;
+    font-size: 1.1em;
+    border-radius: 5px;
 }
 .input-task input{
-    width: 90%;
-    height: 25px;
+    width: 100%;
+    height: 35px;
     padding: 10px;
+    font-size: 1.1em;
+    border-radius: 5px;
 }
 .input-task{
     width: 100% auto;
@@ -91,13 +104,16 @@ nav{
 .input-description input{
     padding: 10px;
     width: 100%;
-    height: 25px
+    height: 50px
+    border-radius: 10px;
 }
 
 .input-btn button{
-    width: 50px;
+    width: 60px;
     margin-left: 10px;
     margin-bottom: 15px;
+    height: 35px;
+    font-size: 1.1em;
 }
 .new-task-container{
     display: flex;
@@ -139,5 +155,9 @@ nav{
 .detail-box p{
     margin: 5px;
     padding: 5px;
+    text-align: center;
 }
+
+
+
 

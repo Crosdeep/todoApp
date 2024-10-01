@@ -9,7 +9,7 @@
     <nav>
         <h1 class="nav-title">My Todo</h1>
         <div class="nav-search">
-            <input type="text" placeholder="Search a Todo..."  value="{{ request.args.get('search', '') }}">
+            <input type="text" placeholder="Search a Todo...">
             <button type="submit" class="submit-btn">Search</button>
             <button type="submit" class="add-task-btn"> <a href="{{ url_for('todo.create_task') }}">+ Add</a> </button>
         </div>
@@ -17,20 +17,26 @@
 
     <h1>Todo List</h1>
     <hr>
-    <div class="task-container">
-        {% for todo in todos %}
-            <div class="task-box">
-                <h2>{{ todo.title }}</h2>
-                <p>{{ todo.task }}</p>
-                <a href="{{ url_for('todo.detail_task', id=todo.id) }}" style="color: blue;">Detaylar</a>
+    <div class="generate-container">
+        <div class="task-container">
+            {% for todo in todos %}
+                <div class="task-box">
+                    <h2>{{ todo.title }}</h2>
+                    <p>{{ todo.task }}</p>
+                    <p>{{ todo.description }}</p>
 
-                <!--Silme-->
-                <form action="{{ url_for('todo.delete_task', id=todo.id) }}" method="POST" style="display:inline;">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" style="color: red; background: none; border: none; cursor: pointer; font-size: 16px;">Sil</button>
-                </form>
-            </div>
-        {% endfor %}
+
+                    <div class="details">
+                    <a href="{{ url_for('todo.detail_task', id=todo.id) }}" style="color: blue;">Detaylar</a>
+                    <form action="{{ url_for('todo.delete_task', id=todo.id) }}" method="POST" style="display:inline;">
+                    </div>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" style="color: red; background: none; border: none; cursor: pointer; font-size: 16px;">Sil</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+
     </div>
 </body>
 </html>

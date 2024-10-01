@@ -1,10 +1,7 @@
 #models
-from email.policy import default
-
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-from sqlalchemy import nulls_last
 
 db = SQLAlchemy()
 

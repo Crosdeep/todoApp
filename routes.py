@@ -8,7 +8,7 @@ from models import db, Todo
 todo_db = Blueprint('todo',__name__)
 
 #Anasayfa
-@todo_db.route("/")
+@todo_db.route("/", methods=['POST','GET'])
 def index():
     todos = Todo.query.all()
     return render_template("index.html", todos=todos)
@@ -21,6 +21,7 @@ def create_task():
         title = request.form['title']
         task = request.form['task']
         description = request.form.get('description')
+
 
         new_task = Todo(title=title, task=task, description=description)
         db.session.add(new_task)
@@ -38,17 +39,6 @@ def delete_task(id):
             db.session.delete(task)
             db.session.commit()
             return redirect(url_for('todo.index'))
-
-
-@todo_db.route('/todos', methods=['GET', 'POST'])
-def todo_index():
-    search_query = request.args.get('search')
-    if search_query:
-        todos = Todo.query.filter(Todo.title.contains(search_query) | Todo.task.contains(search_query)).all()
-    else:
-        todos = Todo.query.all()
-
-    return render_template('index.html', todos=todos)
 
 
 #Görev detay sayfası

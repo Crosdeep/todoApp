@@ -10,7 +10,7 @@
 <div class="new-task-container">
     <div class="add-todo">
          <h1>Yeni Görev Ekle</h1> <hr>
-        <form action="{{ url_for('todo.todo_index') }}" method="POST" class="form-view">
+        <form action="{{ url_for('todo.create_task') }}" method="POST" class="form-view">
             <div class="input-title">
                 <label for="title">Başlık:</label>
                 <input type="text" name="title" required><br>
